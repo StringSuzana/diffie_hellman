@@ -61,6 +61,7 @@ def what_is_primitive_root_modulo_p():
         for exponent in range_of_search:
             result = pow(possible_root, exponent, modulo)
             print(f'{possible_root}^{exponent}(mod {modulo}) = {result}')
+        print('-----------------------')
 
 
 if __name__ == '__main__':
