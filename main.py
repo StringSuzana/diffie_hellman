@@ -23,12 +23,14 @@ def primitive_root(modulo):
     required_set = set(num for num in range(1, modulo))
     for co_prime_of_modulo in range(1, modulo):
         actual_set = set()  # Here set is used so that only unique numbers should fall in
-        for power in range(1, modulo): # We are searching for a number that will be co-prime
+        for power in range(1, modulo):  # We are searching for a number that will be co-prime
             actual_set.add(pow(co_prime_of_modulo, power, modulo))  # co_prime_of_modulo ^ power % modulo
         if required_set == actual_set:
             return co_prime_of_modulo
         else:
             continue
+
+
 '''
 p=7
 g=3
@@ -51,7 +53,18 @@ Private keys will become exponents!
 3^10(mod 7) = 4
 '''
 
+
+def what_is_primitive_root_modulo_p():
+    modulo = 7
+    range_of_search = range(1, modulo)  # [1, modulo>
+    for possible_root in range_of_search:
+        for exponent in range_of_search:
+            result = pow(possible_root, exponent, modulo)
+            print(f'{possible_root}^{exponent}(mod {modulo}) = {result}')
+
+
 if __name__ == '__main__':
+    what_is_primitive_root_modulo_p()
     # Generating private keys
     alice_private = randint(100, 99999)
     print('Alice private key is %d' % alice_private)
